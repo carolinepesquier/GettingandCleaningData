@@ -111,8 +111,8 @@ Some variable names contain "mean" but are Frequency mean rather than standard m
 
 `names(consodata3)<-gsub("Acc","Accelerometer ", names(consodata3))`
 
-* Create the table 'TidyData' using groupby() and summarise_all() from dplyr package. 
-_This table is tidy that meet the criteria from Hadley Wickham in his "Tidy data" paper (check http://vita.had.co.nz/papers/tidy-data.html). My TidyData is presented in a Wide format, which is one of the form of a tidy dataset.
+* Create the table 'TidyData' using groupby() and summarise_all() from dplyr package to calculate the mean as requested and display the results in a tidy way. The now tidy dataset shows the mean of each features for each activity and each subject.
+This table is tidy that meet the criteria from Hadley Wickham in his "Tidy data" paper (check http://vita.had.co.nz/papers/tidy-data.html). My TidyData is presented in a Wide format, which is one of the form of a tidy dataset.
 
 `TidyData<-consodata3 %>% group_by(Subject ID, Activity) %>% summarise_all(funs(mean))`
 
