@@ -82,6 +82,7 @@ Script step by step explanations:
 `meanall<-grep("mean",feature_names[,2])+2`: Vector that contains all the indices for the feature that contain the word "mean" in their name.
 
 Some variable names contain "mean" but are Frequency mean rather than standard mean. I chose to exclude this "MeanFreq". Note that excluding or including these features is a matter of personal choice (check : https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/)
+
 `meanFreq<-grep("meanFreq",feature_names[,2])+2`: Vector that contains the "meanFreq" feature indices
 `meanindice<-meanall[!meanall %in% meanFreq]` : Vector that contains only the "mean" feature indices
 `stdindice<-grep("std",feature_names[,2],ignore.case=TRUE)+2` : Vector that contains all the "standard deviation" feature indices
@@ -116,4 +117,5 @@ _This table is tidy that meet the criteria from Hadley Wickham in his "Tidy data
 `TidyData<-consodata3 %>% group_by(Subject ID, Activity) %>% summarise_all(funs(mean))`
 
  * Finally, creation of the outpout .txt file
+ 
  `write.table(TidyData, file = "TidyData.txt", row.names = FALSE)`
